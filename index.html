@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+/*-------------This is the background (form)----------*/
+	body{
+		margin: 0;
+	}
+	#calcContainer{
+		background-image: url(images/darkRoseGlitter.jpg);
+		background-size: cover;
+        height: 1000px;
+
+	}
+/*---------------------------H1-"Girly Calculator" ----------------------*/
+	h1 {
+		color: #efbade;
+     	padding: 75px;
+     	font-size: 75px;
+     	font-weight: bolder;
+     	font-family: 'Parisienne', cursive;
+     	text-shadow: 20px 20px black;
+     	margin:0;
+     }
+
+/*---------This is the body of the calculator -------*/
+	form{
+		background-image: url(images/rainbow.jpg);
+		border: 3px solid #3a1117;
+		height:550px;
+		width: 350px;
+		border-radius: 15px;
+		/*display: flex;*/
+	}
+
+/*-----------This is the input window ------------*/
+     #answer {
+     	margin: 40px;
+     	height: 70px;
+     	width: 270px;
+		text-align: right;
+		background: white;
+		font-size: 30px;
+		border: 3px solid black;	
+		border-radius: 10px;
+     }
+
+
+/*//////////////////////////////////THIS MAKES CLICKABLE BUTTONS*/
+
+/*---------These are the buttons--------------*/
+
+	.numberkeys {
+		/*justify-content: space-around;*/
+		width: 65px;
+		height: 65px;
+		text-align: center;
+		font-size: 25px;
+		font-family: 'Parisienne', cursive;
+		font-weight: bolder;
+		border: 2px solid #3a1117;	
+		background-color:#bf7d87;
+		border-radius: 15px;
+		margin: 5px;
+	}
+
+	.numberkeys {
+	  width: 65px;
+	  height: 65px;
+	  padding: 10px 15px;
+	  font-size: 25px;
+	  text-align: center;
+	  cursor: pointer;
+	  /*outline: none;*/
+	  color: black;
+	  background-color: #bf7d87;
+	  /*border: none;*/
+	  border-radius: 15px;
+	  box-shadow: 0 3px #e3e4e6;
+	}
+
+	.numberkeys:hover {background-color: #af4d5b;
+	 
+	}
+
+	.numberkeys:active {
+	  background-color: #f7d0cb	;
+	  box-shadow: 0 2px #313131;
+	  transform: translateY(4px);
+
+	}
+
+/*---------These are the operator buttons---*/
+	
+	#operator{
+		  background-color: #ead6d9; 
+
+	}
+
+	#operator:active{
+		background-color: #f7d0cb	;
+		box-shadow: 0 2px #313131;
+		transform: translateY(4px);
+	
+	}
+
+	#operator:hover{background-color: #af4d5b;
+
+	}
+
+	
+/*--------------------These are the Avg and 0 buttons */
+	#operatorSpecial{
+		  background-color: #ead6d9;
+  		  height: 70px;
+		  width: 130px;
+
+	}
+	#operatorSpecial:active{
+		background-color: #f7d0cb	;
+		box-shadow: 0 2px #313131;
+		transform: translateY(4px);
+	
+	}
+
+	#operatorSpecial:hover{background-color: #af4d5b;
+
+
+	}
+	
+		
+
+	</style>
+
+	<script>
+		function average (input){
+			var array = input.split("+");
+			var sum = 0;
+
+			for(i=0; i<array.length; i++){
+				var integer = parseFloat(array[i]);
+				sum += integer;
+			}
+
+			var avg = sum/array.length;
+			return avg;
+		}
+
+	</script>
+</head>
+
+<body>
+
+	<div id="calcContainer">
+		<center>
+		
+		<h1>Girly Calculator</h1>
+			
+			<form id="Calculator" name="calculator">
+				
+				<input type="text" id="answer" name="answer" />
+				<br>
+
+				<input type="button" class="numberkeys"  value=" 7 " onclick="calculator.answer.value += '7' "/>
+				<input type="button" class="numberkeys"  value=" 8 " onclick="calculator.answer.value += '8' " >
+				<input type="button" class="numberkeys"  value=" 9 " onclick="calculator.answer.value += '9' "/>
+				<input type="button" class="numberkeys" id="operator" value=" x " onclick="calculator.answer.value += '*' " >
+				<br>
+
+				<input type="button" class="numberkeys" value=" 4 " onclick="calculator.answer.value += '4' "/>
+				<input type="button" class="numberkeys" value=" 5 " onclick="calculator.answer.value += '5' " >
+				<input type="button" class="numberkeys" value=" 6 " onclick="calculator.answer.value += '6' "/>
+				<input type="button" class="numberkeys" id="operator" value=" - "  onclick="calculator.answer.value += '-' " >
+				<br>
+
+				<input type="button" class="numberkeys" value=" 1 " onclick="calculator.answer.value += '1' "/>
+				<input type="button" class="numberkeys" value=" 2 " onclick="calculator.answer.value += '2' " >
+				<input type="button" class="numberkeys" value=" 3 " onclick="calculator.answer.value += '3' "/>
+				<input type="button" class="numberkeys" id="operator" value=" + " onclick="calculator.answer.value += '+' " >
+				<br>
+
+				<input type="button" class="numberkeys" value=" 0 " onclick="calculator.answer.value += '0' " colspan="2" />
+				<input type="button" class="numberkeys" id="operator"  value=" . " onclick="calculator.answer.value += '.' ">
+				<input type="button" class="numberkeys" id="operator"  value=" / " onclick="calculator.answer.value += '/' " >
+				<input type="button" class="numberkeys" id="operator"  value=" = " onclick="calculator.answer.value = eval(calculator.answer.value)" />
+				<br>
+
+				<input type="button" class="numberkeys" id="operatorSpecial"  value=" Avg " onclick="calculator.answer.value = average(calculator.answer.value) "/>
+				<input type="button" class="numberkeys" id="operatorSpecial"  value=" C " onclick="calculator.answer.value =  ' ' "/>
+				
+				<br>
+
+			</form>
+		
+		</center>
+
+	</div>
+
+<!-- <FORM NAME="Calc">
+<TABLE BORDER=4>
+<TR>
+<TD>
+<INPUT TYPE="text"   NAME="Input" Size="16">
+<TR>
+<TD>
+<INPUT TYPE="button" NAME="one"   VALUE="  1  " OnClick="Calc.Input.value += '1'"> 
+<INPUT TYPE="button" NAME="two"   VALUE="  2  " OnCLick="Calc.Input.value += '2'">
+<br>
+<INPUT TYPE="button" NAME="plus"  VALUE="  +  " OnClick="Calc.Input.value += ' + '">
+<INPUT TYPE="button" NAME="DoIt"  VALUE="  =  " OnClick="Calc.Input.value = eval(Calc.Input.value)">
+</TD>
+</TR>
+</TABLE>
+</FORM> -->
+
+
+</body>
+
+</html>
